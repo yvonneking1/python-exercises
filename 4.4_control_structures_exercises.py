@@ -1,7 +1,7 @@
 # 1. Conditional Basics
 # a) prompt the user for a day of the week, print out whether the day is Monday or not
 day_of_the_week = input("What day of the week is it?")
-if day_of_the_week == 'Monday':
+if day_of_the_week.lower() == 'monday':
     print("Today is Monday, blah!")
 else:
     print("Today is not Monday, it is", day_of_the_week)
@@ -32,9 +32,9 @@ else:
     print("This week you made", paycheck_total, "dollars")
 
 # 2. Create an integer variable i with a value of 5.
-i = 5
 # Create a while loop that runs so long as i is less than or equal to 15
 # Each loop iteration, output the current value of i, then increment i by one.
+i = 5
 while i <= 15:
     print(i)
     i += 1
@@ -54,14 +54,14 @@ while x >= -10:
 # Create a while loop that starts at 2, and displays the number squared on each line 
 # while the number is less than 1,000,000. Output should equal:
 num = 2
-while num < 1000000:
+while num < 1_000_000:
     print(num)
-    num = num ** 2
+    num *= num
 
 # Write a loop that uses print to create the output shown below.
 # 100
 # 95
-# 90 all the way to 5
+# 90 all the way to 5 
 num1 = 100
 while num1 >= 5:
     print(num1)
@@ -89,7 +89,9 @@ for num in nums:
     print(num * str(num))
 
 # 2c) break and continue
-# Prompt the user for an odd number between 1 and 50. Use a loop and a break statement to continue prompting the user if they enter invalid input. (Hint: use the isdigit method on strings to determine this). Use a loop and the continue statement to output all the odd numbers between 1 and 50, except for the number the user entered.
+# Prompt the user for an odd number between 1 and 50. Use a loop and a break statement to continue prompting the user if they enter invalid input. 
+# (Hint: use the isdigit method on strings to determine this). Use a loop and the continue statement to output all the odd numbers between 1 and 50, 
+# except for the number the user entered.
 # Your output should look like this:
 # Number to skip is: 27
 
@@ -160,25 +162,27 @@ for num in fizz_numbers:
 first_int = input("Please provide a number greater than 0")
 first_range = range(1, (int(first_int) + 1))
 
+print("number | squared | cubed")
+print("------ | ------ | ------ |")
 for num in first_range:
     if num <= int(first_int):
-        print("number | squared | cubed")
-        print("------ | ------ | ------ |")
         print(str(num), str(num ** 2), str(num ** 3))
               
 user_continue = input("Would you like to continue, yes or no?")
 
 if user_continue.lower() == "no":
     print("Have a great day!")
+        
+print("number | squared | cubed")
+print("------ | ------ | ------ |")
 
-if user_continue.lower() == "yes":
+while user_continue.lower() == "yes":
     new_number = input("What number would you like to go up to?")
     second_range = range(1, (int(new_number) + 1))
     for nums in second_range:
         if nums <= int(new_number):
-            print("number | squared | cubed")
-            print("------ | ------ | ------ |")
             print(str(nums), str(nums ** 2), str(nums ** 3))
+    user_continue = input("Keep going, yes or no?")
 
 # 5.Convert given number grades into letter grades.
 # Prompt the user for a numerical grade from 0 to 100.
@@ -208,7 +212,7 @@ else:
 
 cont_with_grades = input("Would you like to continue, yes or no?")
 
-if cont_with_grades.lower() == 'yes':
+while cont_with_grades.lower() == 'yes':
     new_number_grade = input("Enter in your next numerical grade")
     if int(new_number_grade) <= 59:
         print("You received an F")
@@ -218,5 +222,11 @@ if cont_with_grades.lower() == 'yes':
         print("You received a C")
     elif int(new_number_grade) <= 87:
         print("You received a B")
-    elif int(new_number_grade) > 87:
+    else int(new_number_grade) > 87:
         print("You received an A")
+    cont_with_grades = input("Would you like to continue, yes or no?")
+
+# Create a list of dictionaries where each dictionary represents a book that you have read. 
+# Each dictionary in the list should have the keys title, author, and genre. Loop through the list and print out information about each book.
+# Prompt the user to enter a genre, then loop through your books list and print out the titles of all the books in that genre.
+
