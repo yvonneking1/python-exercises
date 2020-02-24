@@ -18,10 +18,9 @@ def is_consonant(x):
 
 # 4. Define a function that accepts a string that is a word. 
 # The function should capitalize the first letter of the word if the word starts with a consonant.
-vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
 def capitalize_begining_consonants(word):
     first_letter = word[0]
-    if first_letter in vowels:
+    if is_vowel(first_letter):
         return word
     else:
         return word.capitalize()
@@ -65,9 +64,47 @@ def get_letter_grade(x):
 # 9. Define a function named remove_vowels that accepts a string and returns a string with all the vowels removed.
 def remove_vowels(letters):
     new_word = ""
-    vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
     for letter in letters:
-        if letter not in vowels:
+        if is_consonant(letter):
             new_word += letter
     return new_word
 
+# 10. Define a function named normalize_name. It should accept a string and return a valid python identifier, that is:
+# anything that is not a valid python identifier should be removed
+# leading and trailing whitespace should be removed
+# everything should be lowercase
+# spaces should be replaced with underscores
+# for example:
+# Name will become name
+# First Name will become first_name
+# % Completed will become completed
+def remove_leading_whitespace(words):
+    words = words.lower()
+    if words[0] == " ":
+        return words[1:]
+    else:
+        return words
+    
+def remove_ending_whitespace(words):
+    words = remove_leading_whitespace(words)
+    if words[-1] == [" "]:
+        return words[:-1]
+    else:
+        return words
+
+def normalize_name(words):
+    words = remove_ending_whitespace(words)
+    return words.replace(" ", "_")
+
+# 11. Write a function named cumsum that accepts a list of numbers and returns a list that is the cumulative 
+# sum of the numbers in the list.
+# cumsum([1, 1, 1]) returns [1, 2, 3]
+# cumsum([1, 2, 3, 4]) returns [1, 3, 6, 10]
+
+def cumsum(numbers):
+    total = 0
+    new_list = []
+    for num in numbers:
+        total += num
+        new_list.append(total)
+    return new_list
