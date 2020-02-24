@@ -1,6 +1,6 @@
 # 1. Define a function named is_two. It should accept one input and return True if the passed input is either the number or the string 2, False otherwise.
 def is_two(x):
-    return x == 2
+    return x == 2 or x == "2"
 
 # 2. Define a function named is_vowel. It should return True if the passed string is a vowel, False otherwise.
 def is_vowel(x):
@@ -31,7 +31,7 @@ def calculate_tip(tip,bill):
     if tip >= 1:
         tip /= 100
     tip_amount = bill * tip
-    return bill + tip_amount
+    return tip_amount 
 
 # 6. Define a function named apply_discount. It should accept a original price, and a discount percentage, 
 # and return the price after the discount is applied.
@@ -108,3 +108,17 @@ def cumsum(numbers):
         total += num
         new_list.append(total)
     return new_list
+
+#Bonus questions
+# 1. Create a function named twelveto24. It should accept 
+# a string in the format 10:45am or 4:30pm and return a string that is the representation of the time in a 24-hour format.
+
+def twelveto24(time):
+    if time[-2] == "AM" and time[:2] == "12":
+        return "00" + time[2:-2]
+    elif time[-2] == "AM":
+        return time[:-2]
+    elif time[-2] == "PM" and time[:2] == "12":
+        return time[:-2]
+    else:
+        return str(int(time[:2]) + 12) + time[2:-2]
