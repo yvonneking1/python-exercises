@@ -22,24 +22,14 @@ grade(87)
 
 
 # 1. How many different ways can you combine the letters from "abc" with the numbers 1, 2, and 3?
-from itertools import permutations
-len(list(permutations(["a", "b", "c", 1, 2, 3])))
+import itertools as it
+len(list(it.product(["a", "b", "c", 1, 2, 3])))
 
 # 2. How many different ways can you combine two of the letters from "abcd"?
-from itertools import combinations
-len(list(combinations(["a", "b", "c", "d"], 2)))
+len(list(it.combinations(["a", "b", "c", "d"], 2)))
 
 # write some code that calculates and outputs the following information:
 
-
-
-
-
-
-
-
-
-# Total number of unread messages for all users
 import json
 profiles_list = json.load(open("profiles.json"))
 
@@ -78,3 +68,6 @@ most_common_fruit = mode(fruits)
 from collections import Counter
 fruit_count = Counter(fruits)
 least_favorite_fruit = sorted(fruit_count)[0]
+
+# Total number of unread messages for all users
+start_index = []

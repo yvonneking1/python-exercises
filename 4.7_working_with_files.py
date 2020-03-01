@@ -35,7 +35,8 @@ def show_grocery_list():
 
 
 def buy_item(item):
-    return grocery_list.remove(item)
+    grocery_list.remove(item)
+    make_grocery_list(grocery_list)
 
 
 
