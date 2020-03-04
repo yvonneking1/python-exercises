@@ -118,13 +118,17 @@ exam_scores.apply(convert_to_letter_grade)
 curved_exam_scores = exam_scores + (100 - exam_scores.max())
 
 # Use pandas to create a Series from the following string:
-string = pd.Series('[hnvidduckkqxwymbimkccexbkmqygkxoyndmcxnwqarhyffsjpsrabtjzsypmzadfavyrnndndvswreauxovncxtwzpwejilzjrmmbbgbyxvjtewqthafnbkqplarokkyydtubbmnexoypulzwfhqvckdpqtpoppzqrmcvhhpwgjwupgzhiofohawytlsiyecuproguy'])
+string_list = pd.Series(list('hnvidduckkqxwymbimkccexbkmqygkxoyndmcxnwqarhyffsjpsrabtjzsypmzadfavyrnndndvswreauxovncxtwzpwejilzjrmmbbgbyxvjtewqthafnbkqplarokkyydtubbmnexoypulzwfhqvckdpqtpoppzqrmcvhhpwgjwupgzhiofohawytlsiyecuproguy'))
 
 # What is the most frequently occuring letter? Least frequently occuring?
-string.mode()
+string_list.mode()
+
 # How many vowels are in the list?
+
+
 # How many consonants are in the list?
+
 # Create a series that has all of the same letters, but uppercased
-string[string.str.upper()]
+string_list[string_list.str.upper()]
 
 # Create a bar plot of the frequencies of the 6 most frequently occuring letters.
