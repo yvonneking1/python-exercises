@@ -19,11 +19,18 @@ fruits.value_counts()
 fruits.mode()
 
 # f. Determine the least frequently occurring fruit name from the series.
-fruits.value_counts()
+fruits.value_counts().index[-1]
+
+#best programatic answer
+fruits.value_counts().nsmallest(keep="all")
 
 # g. Write the code to get the longest string from the fruits series.
 fruits[fruits.str.len().sort_values(ascending = False)].max()
 fruits[5]
+
+# alt code
+index_of_longest_string = fruits.apply(len).argmax()
+fruits[index_of_longest_string]
 
 # h. Find the fruit(s) with 5 or more letters in the name.
 def fruits_with_more_than_5_characters(fruit):
@@ -32,11 +39,20 @@ def fruits_with_more_than_5_characters(fruit):
 
 fruits.apply(fruits_with_more_than_5_characters)
 
+# alt code
+fruits[fruits.str.len() >= 5]
+
 # i. Capitalize all the fruit strings in the series.
 fruits.str.capitalize()
 
+#alt code - this capitalizes after spaces as well
+fruits.str.title()
+
 # j. Count the letter "a" in all the fruits (use string vectorization)
 fruits.apply(lambda l: l.count("a"))
+
+# alt code
+fruits.str.count("a")
 
 # k. Output the number of vowels in each and every fruit.
 def count_vowels(letters):
@@ -122,13 +138,24 @@ string_list = pd.Series(list('hnvidduckkqxwymbimkccexbkmqygkxoyndmcxnwqarhyffsjp
 
 # What is the most frequently occuring letter? Least frequently occuring?
 string_list.mode()
+string_list.value_counts().index[-1]
 
 # How many vowels are in the list?
+def is_vowel(string):
+    return string in list("aeiou")
 
+letters.apply(is_vowel).sum()
 
 # How many consonants are in the list?
+
 
 # Create a series that has all of the same letters, but uppercased
 string_list[string_list.str.upper()]
 
 # Create a bar plot of the frequencies of the 6 most frequently occuring letters.
+six_most_frequent = letter.value-counts()[:6]
+
+labels = list(six_most_frequent.index)
+values = list(six_most_frequent.values)
+
+plt.bar(labes, values)
