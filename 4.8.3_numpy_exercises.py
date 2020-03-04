@@ -71,3 +71,11 @@ odds_in_a = step_1[step_1 % 2 != 0]
 
 # Exercise 8 - Make a variable named evens_in_a. It should hold only the evens.
 evens_in_a = step_1[step_1 % 2 == 0]
+
+## What about life in two dimensions? A list of lists is matrix, a table, a spreadsheet, a chessboard...
+## Setup 2: Consider what it would take to find the sum, min, max, average, sum, product, and list of squares for this list of two lists.
+b = [[3, 4, 5], [6, 7, 8]]
+
+# Exercise 1 - refactor the following to use numpy. 
+# Use sum_of_b as the variable. **
+# Hint, you'll first need to make sure that the "b" variable is a numpy array**
